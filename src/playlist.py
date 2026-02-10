@@ -74,7 +74,7 @@ class Playlist:
 
 	@staticmethod
 	def check_url(url:str) -> bool:
-		pattern = "https:\/\/open\.spotify\.com\/playlist\/"
+		pattern = "https:\\/\\/open\\.spotify\\.com\\/playlist\\/"
 		is_spotify_playlist = re.match(pattern, url)
 
 		if(is_spotify_playlist):
