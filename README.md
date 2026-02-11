@@ -2,13 +2,15 @@
 
 Requirements
 
-- docker
-- spotify API keys
+- Docker CLI
+- Spotify API Keys
 
 Setup
 
-1. Add your spotify client id and spotify client secret id to /src/api_keys
-2. Run from the command line
+1. Obtain a spotify Client ID and Client Secret ID from `https://developer.spotify.com/dashboard` 
+2. Add the Spotify Client ID to `src/api_keys/spotify_client_id.txt`
+3. Add the Spotify Client Secret ID to `/src/api_keys/spotify_client_secret.txt`
+5.  Run the below docker build command from the command lind
 ```
 docker build -t spotify-playlist-analyzer .
 ```
