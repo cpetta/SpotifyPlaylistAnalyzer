@@ -1,6 +1,6 @@
 
 __pycache__/*
 .vscode/settings.json
-settings.py
 token.json
-settings.py
+spotify_client_id.txt
+spotify_client_secret.txt
