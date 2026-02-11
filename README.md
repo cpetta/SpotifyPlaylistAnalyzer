@@ -1,7 +1,7 @@
 # SpotifyPlaylistAnalyzer
 
 ## Important Status Update
-As of March 9 2026, this program will no longer work.
+As of March 9 2026, this program will no longer work due to changes to the Spotify API.
 
 Please see this
 <a href="https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security" target="_blank">Spotify blog post on this change</a>
