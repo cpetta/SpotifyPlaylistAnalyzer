@@ -3,7 +3,7 @@ import math
 import logging
 
 from auth import Auth
-
+from artist import Artist
 from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from tqdm import tqdm
@@ -23,7 +23,7 @@ http.mount("http://", adapter)
 
 # https://developer.spotify.com/documentation/web-api/reference/get-an-artists-related-artists
 @staticmethod
-def get_related_artists(auth:Auth, artist):
+def get_related_artists(auth:Auth, artist:Artist) -> list[Artist]:
 	API_endpoint = f'https://api.spotify.com/v1/artists/{artist.id}/related-artists'
 
 	response = http.get(url=API_endpoint, headers=auth.http_headers()) # type: ignore
@@ -38,16 +38,17 @@ def get_related_artists(auth:Auth, artist):
 # https://developer.spotify.com/documentation/web-api/reference/get-playlist
 @staticmethod
 def get_playlist(auth:Auth, id:str):
-	API_endpoint = f'https://api.spotify.com/v1/playlists/{id}'
+	API_endpoint:str = f'https://api.spotify.com/v1/playlists/{id}'
 	
 	parameters = {
 		"market": "US",
 		"fields": "tracks.items.track.artists(name, id), tracks.items.track.album(id)"
 	}
 
-	response = http.get(url=API_endpoint, headers=auth.http_headers(), params=parameters) # type: ignore
-
-	return response.json()
+	response:requests.Response = http.get(url=API_endpoint, headers=auth.http_headers(), params=parameters) # type: ignore
+	response_json:dict[str, object] = response.json();
+	
+	return response_json
 
 
 
@@ -61,11 +62,11 @@ def get_several_artists_genres(auth:Auth, id_list:list[str]) -> dict[str, int]:
 
 	# Split artist info requests into groups of 50
 	limit:int = 50
-	split_requests = []
+	split_requests: list[list[str]] = []
 
 	num_requests = math.ceil(len(id_list) / limit)
 
-	for x in range(num_requests):
+	for _ in range(num_requests):
 		split_requests.append([])
 
 	i:int = 0

@@ -7,7 +7,7 @@ class Artist:
 		self.id:str = id
 		self.name:str = name
 		self.count:int = 1
-		self.generes:dict = {}
+		self.generes:dict[str, int] = {}
 		self.related_artists:dict[str, 'Artist'] = {}
 
 	def get_related_artists(
@@ -23,8 +23,8 @@ class Artist:
 		data = spotify_api.get_related_artists(auth, self)
 
 		for item in data:
-			id:str = item['id']
-			name:str = item['name']
+			id:str = item.id
+			name:str = item.name
 
 			self.related_artists[id] = Artist(id, name)
 			
@@ -42,7 +42,9 @@ class Artist:
 
 	# Compairison opperators
 	# Equal
-	def __eq__(self, other: 'Artist') -> bool:
+	def __eq__(self, other: object) -> bool:
+		if not isinstance(other, Artist):
+			return NotImplemented
 		return self.count == other.count
 	
 	# Greater Than	
@@ -62,5 +64,7 @@ class Artist:
 		return self.count >= other.count
 	
 	# Not equal
-	def __ne__(self, other: 'Artist') -> bool:
+	def __ne__(self, other: object) -> bool:
+		if not isinstance(other, Artist):
+			return NotImplemented
 		return self.count != other.count

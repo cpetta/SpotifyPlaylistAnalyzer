@@ -15,7 +15,7 @@ class Token:
 		self.expires_in:int = expires_in
 		self.expire_time:float = expire_time
 
-	def to_json(self) -> dict:
+	def to_json(self) -> dict[str, str | int | float]:
 		return  {
 			"access_token": self.access_token,
 			"token_type": self.token_type,

@@ -10,7 +10,7 @@ class Playlist:
 	def __init__(self, auth:Auth, url:str):
 		self.url:str = url
 		self.id:str = self.get_id()
-		self.data:dict = spotify_api.get_playlist(auth, self.id)
+		self.data = spotify_api.get_playlist(auth, self.id)
 		self.albums:dict[str, Album] = self.get_playlist_albums(auth)
 		self.artists:dict[str, Artist] = self.get_playlist_artists()
 		self.genres:dict[str, int] = self.get_playlist_genres(auth)

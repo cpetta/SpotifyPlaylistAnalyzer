@@ -38,7 +38,7 @@ class Auth:
 
 		return token
 
-	def http_headers(self) -> dict:
+	def http_headers(self) -> dict[str, str]:
 		return {
 			"Authorization": f"{self.token.token_type} {self.token.access_token}"
 		}
