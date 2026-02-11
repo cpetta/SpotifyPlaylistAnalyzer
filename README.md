@@ -43,7 +43,7 @@ https://open.spotify.com/playlist/603oF0bPdW4ZwSCHF8Zs4L
 
 6. Paste the copied URI into the command window
 7. Press Enter
-8. Example output below
+8. Example output
 
 ```
 Enter a spotify playlist URL. Formatted like: (open.spotify.com/playlist/)
@@ -67,5 +67,14 @@ Number of artists in playlist: 30
 Top 10 Recommended Artists
 ------------------------------
 100%|███████████████████████████████████████████| 30/30 [00:02<00:00, 13.57it/s]
-
+1 - Emancipator
+2 - RJD2
+3 - Little People
+4 - Bonobo
+5 - The Glitch Mob
+6 - Blockhead
+7 - Ancient Astronauts
+8 - Prefuse 73
+9 - Aydio
+10 - Trifonic
 ```
