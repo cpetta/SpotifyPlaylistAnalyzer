@@ -1,11 +1,19 @@
 # SpotifyPlaylistAnalyzer
 
-Requirements
+## Important Status Update
+As of March 9 2026, this program will no longer work.
+
+Please see this
+<a href="https://developer.spotify.com/blog/2026-02-06-update-on-developer-access-and-platform-security" target="_blank">Spotify blog post on this change</a>
+and
+<a href="https://developer.spotify.com/documentation/web-api/references/changes/february-2026" target="_blank">Spotify API change log</a>
+
+## Requirements
 
 - Docker CLI
 - Spotify API Keys
 
-Setup
+## Setup
 
 1. Obtain a spotify Client ID and Client Secret ID from `https://developer.spotify.com/dashboard`
 2. Add the Spotify Client ID to `src/api_keys/spotify_client_id.txt`
@@ -16,7 +24,7 @@ Setup
 docker build -t spotify-playlist-analyzer .
 ```
 
-Usage
+## Usage
 
 1. Run from the command line
 
